@@ -807,7 +807,16 @@ public class AutoClickerFrame extends JFrame implements NativeKeyListener {
 
     @Override
     public void nativeKeyPressed(NativeKeyEvent nativeKeyEvent) {
+        if (nativeKeyEvent.getKeyCode() == NativeKeyEvent.VC_F1) {
+            start();
+        } else if (nativeKeyEvent.getKeyCode() == NativeKeyEvent.VC_F2) {
+            autoClicker.stopLooping();
+        } else if (nativeKeyEvent.getKeyCode() == NativeKeyEvent.VC_F3) {
+            Point mousePosition = MouseInfo.getPointerInfo().getLocation();
 
+            xCoordMouse.setText(String.valueOf(mousePosition.x));
+            yCoordMouse.setText(String.valueOf(mousePosition.y));
+        }
     }
 
     @Override
@@ -817,15 +826,6 @@ public class AutoClickerFrame extends JFrame implements NativeKeyListener {
 
     @Override
     public void nativeKeyTyped(NativeKeyEvent e) {
-        if (e.getKeyCode() == NativeKeyEvent.VC_F1) {
-            start();
-        } else if (e.getKeyCode() == NativeKeyEvent.VC_F2) {
-            autoClicker.stopLooping();
-        } else if (e.getKeyCode() == NativeKeyEvent.VC_F3) {
-            Point mousePosition = MouseInfo.getPointerInfo().getLocation();
 
-            xCoordMouse.setText(String.valueOf(mousePosition.x));
-            yCoordMouse.setText(String.valueOf(mousePosition.y));
-        }
     }
 }
