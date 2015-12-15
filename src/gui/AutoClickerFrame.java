@@ -441,6 +441,12 @@ public class AutoClickerFrame extends JFrame implements NativeKeyListener {
                                         .addComponent(stopButton))
                                 .addContainerGap(2, Short.MAX_VALUE))
         );
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            System.out.println("Unable to set current os look and feel.");
+        }
+
         pack();
         setLocationRelativeTo(getOwner());
         setResizable(false);
